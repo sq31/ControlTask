@@ -60,8 +60,8 @@ string[] SearchStr(string[] findElement) // заполнение массива 
     return ArrayResult;
 }
 
-//try // определение ошибок ввода
-
+try // определение ошибок ввода
+{
 System.Console.Write("Введите размер массива 1:");
 int sizeArray = Convert.ToInt32(Console.ReadLine());
 string[] arrayStart = new string[sizeArray];
@@ -75,5 +75,11 @@ System.Console.Write(" -->(значения <=3 символам)--> ");
 Console.ForegroundColor=ConsoleColor.DarkGreen;
 PrintArray(ArrayResult);
 Console.ResetColor();
+}
 
-
+catch
+{
+    Console.ForegroundColor=ConsoleColor.DarkYellow;
+    Console.WriteLine("Размер массива введен некорректно.");
+    Console.ResetColor();
+}
