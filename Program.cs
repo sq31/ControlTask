@@ -9,9 +9,9 @@
 ["Russia", "Denmark", "Kazan"] -> []
 */
 
-void FillArray(string[] arrayWord)
+void FillArray(string[] arrayWord) // вводим элементы массива
 {
-    Console.Write("Введите элементы массива: ");
+    Console.WriteLine("Введите элементы массива 1: ");
     for (int i = 0; i < arrayWord.Length; i++)
     {
         Console.Write($"[{i}]");
@@ -19,7 +19,7 @@ void FillArray(string[] arrayWord)
     }
 }
 
-void PrintArray(string[] ArrayPrnt)
+void PrintArray(string[] ArrayPrnt) // печать элементов массива
 {
     Console.Write("[");
     for (int i = 0; i < ArrayPrnt.Length; i++)
@@ -32,3 +32,48 @@ void PrintArray(string[] ArrayPrnt)
     }
     Console.Write("] ");
 }
+
+string[] SearchStr(string[] findElement) // заполнение массива 2
+{
+    int count = 0;
+    string symbol = String.Empty;
+    for (int i = 0; i < findElement.Length; i++)
+    {
+        symbol = findElement[i];
+        if (symbol.Length <= 3)
+        {
+            count++;
+        }
+    }
+    string[] ArrayResult = new string[count]; // определили длину массива 2
+
+    int result = 0;
+    for (int j = 0; j < findElement.Length; j++) // перебор и поиск элементов <=3 символов
+    {
+        symbol = findElement[j];
+        if (symbol.Length <= 3)
+        {
+            ArrayResult[result] = symbol;
+            result++;
+        }
+    }
+    return ArrayResult;
+}
+
+//try // определение ошибок ввода
+
+System.Console.Write("Введите размер массива 1:");
+int sizeArray = Convert.ToInt32(Console.ReadLine());
+string[] arrayStart = new string[sizeArray];
+
+FillArray(arrayStart);
+
+string[] ArrayResult = SearchStr(arrayStart);
+PrintArray(arrayStart);
+
+System.Console.Write(" -->(значения <=3 символам)--> ");
+Console.ForegroundColor=ConsoleColor.DarkGreen;
+PrintArray(ArrayResult);
+Console.ResetColor();
+
+
