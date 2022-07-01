@@ -60,7 +60,7 @@ string[] SearchStr(string[] findElement) // заполнение массива 
     return ArrayResult;
 }
 
-try // определение ошибок ввода
+try // обработчик определения ошибок ввода
 {
 System.Console.Write("Введите размер массива 1:");
 int sizeArray = Convert.ToInt32(Console.ReadLine());
