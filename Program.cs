@@ -47,14 +47,14 @@ string[] SearchStr(string[] findElement) // заполнение массива 
     }
     string[] ArrayResult = new string[count]; // определили длину массива 2
 
-    int result = 0;
+    int k = 0;
     for (int j = 0; j < findElement.Length; j++) // перебор и поиск элементов <=3 символов
     {
         symbol = findElement[j];
         if (symbol.Length <= 3)
         {
-            ArrayResult[result] = symbol;
-            result++;
+            ArrayResult[k] = symbol;
+            k++;
         }
     }
     return ArrayResult;
@@ -62,16 +62,16 @@ string[] SearchStr(string[] findElement) // заполнение массива 
 
 try // обработчик определения ошибок ввода
 {
-System.Console.Write("Введите размер массива 1:");
+Console.Write("Введите размер массива 1:");
 int sizeArray = Convert.ToInt32(Console.ReadLine());
 string[] arrayStart = new string[sizeArray];
 
 FillArray(arrayStart);
-
-string[] ArrayResult = SearchStr(arrayStart);
 PrintArray(arrayStart);
 
-System.Console.Write(" -->(значения <=3 символам)--> ");
+string[] ArrayResult = SearchStr(arrayStart);
+
+Console.Write("---(элементы со значениями <=3 символа)---> ");
 Console.ForegroundColor=ConsoleColor.DarkGreen;
 PrintArray(ArrayResult);
 Console.ResetColor();
